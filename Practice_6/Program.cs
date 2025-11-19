@@ -68,6 +68,14 @@ class SimpleRoguelike
         }
     }
 
+    static void Fight(Player player, Enemy enemy)
+    {
+        while (enemy.HP > 0 && player.HP > 0)
+        {
+            
+        }
+    }
+
 
 
 }
