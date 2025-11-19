@@ -31,5 +31,21 @@ class SimpleRoguelike
         }
 
     }
+    static Enemy CreateEnemy()
+    {
+        int type = random.Next(3);
+        if (type == 0)
+        {
+            return new Enemy { Name = "Гоблин", HP = 30, Attack = 8, Type = "Гоблин" };
+        }
+        if (type == 1)
+        {
+            return new Enemy { Name = "Скелет", HP = 25, Attack = 10, Type = "Скелет" };
+        }
+        else
+        {
+            return new Enemy { Name = "Маг", HP = 20, Attack = 7, Type = "Маг" };
+        }
+    }
 
 }
