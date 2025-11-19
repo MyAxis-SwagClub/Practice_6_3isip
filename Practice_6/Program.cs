@@ -1,1 +1,10 @@
-﻿print("52")
+﻿using System;
+
+class SimpleRoguelike
+{
+    static void Main()
+    {
+
+    }
+
+}
