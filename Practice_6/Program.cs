@@ -174,6 +174,52 @@ class SimpleRoguelike
         Fight(player, boss);
     }
 
+    static void OpenChest(Player player)
+    {
+        int itemType = random.Next(3);
+
+        if (itemType == 0)
+        {
+            player.HP = 100;
+            Console.WriteLine($"Зелье лечения! HP восстановлено \n HP: {player.HP}");
+        }
+
+        else if (itemType == 1)
+        {
+            int newAttack = random.Next(8, 16);
+
+            Console.WriteLine($"Найдено оружие! Атака: {newAttack} (текущая: {player.Attack})");
+            Console.Write("Взять? ('д' - Взять): ");
+            if (Console.ReadLine() == "д")
+            {
+                player.Attack = newAttack;
+                Console.WriteLine($"Оружие заменено! Новый параметр аттаки: {player.Attack}");
+            }
+            else
+            {
+                Console.WriteLine($"Парметр атаки не затронут! Активный параметр атаки: {player.Attack}");
+            }
+
+
+        }
+
+        else
+        {
+            int newDefense = random.Next(4, 11);
+            Console.WriteLine($"Найдена броня! Защита: {newDefense} (текущая: {player.Defense})");
+            Console.Write("Взять? ('д' - Взять): ");
+            if (Console.ReadLine() == "д")
+            {
+                player.Defense = newDefense;
+                Console.WriteLine($"Броня заменена! Новый параметр брони: {player.Defense}");
+            }
+            else
+            {
+                Console.WriteLine($"Параметр брони не затронут! Активный параметр брони: {player.Defense}");
+            }
+        }
+    }
+
 
 
 }
