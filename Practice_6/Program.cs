@@ -20,6 +20,10 @@ class SimpleRoguelike
     static void Main()
     {
 
+        Console.WriteLine("0-0-0-0-0 Roguelike RUSSIA 0-0-0-0-0");
+        Player player = new Player();
+        int turn = 0;
+
     }
 
 }
