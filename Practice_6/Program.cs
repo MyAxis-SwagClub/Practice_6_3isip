@@ -72,7 +72,89 @@ class SimpleRoguelike
     {
         while (enemy.HP > 0 && player.HP > 0)
         {
-            
+            Console.Write("\nДля атаки [1] \nДля защиты [2]\n");
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                enemy.HP -= player.Attack;
+                Console.WriteLine($"\nВы нанесли {player.Attack} урона");
+            }
+            else if (choice == "2")
+            {
+                if (random.Next(100) < 40)
+                {
+                    Console.WriteLine("\nУклонение! Враг промахнулся");
+                    continue;
+                }
+                else
+                {
+                    int block = player.Defense * random.Next(70, 101) / 100;
+                    Console.WriteLine($"\nБлокировано {block} урона");
+                }
+            }
+
+            if (enemy.HP <= 0)
+            {
+                Console.WriteLine($"{enemy.Name} побежден!");
+                break;
+            }
+
+            int damage = enemy.Attack;
+
+            if (enemy.Type == "Гоблин")
+            {
+                if (enemy.Name == "ВВГ")
+                {
+                    if (random.Next(100) < 30)
+                    {
+                        damage *= 2;
+                        Console.WriteLine("Критический урон!");
+                    }
+                }
+                else if (enemy.Type == "Гоблин")
+                {
+                    if (random.Next(100) < 20)
+                    {
+                        damage *= 2;
+                        Console.WriteLine("Критический урон!");
+                    }
+                }
+            }
+
+            else if (enemy.Type == "Скелет")
+            {
+                Console.WriteLine("Враг игнорирует защиту!");
+            }
+
+            else if (enemy.Type == "Маг")
+            {
+                if (enemy.Name == "Архимаг C++" && random.Next(100) < 35)
+                {
+                    player.Frozen = true;
+                    Console.WriteLine("Заморозка!");
+                }
+
+                else if (enemy.Name == "Пестов С--" && random.Next(100) < 40)
+                {
+                    player.Frozen = true;
+                    Console.WriteLine("Заморозка!");
+                }
+
+                else if (random.Next(100) < 25)
+                {
+                    player.Frozen = true;
+                    Console.WriteLine("Заморозка!");
+                }
+            }
+
+            if (enemy.Type != "Скелет" && !(enemy.Type == "Гоблин" && damage > enemy.Attack))
+            {
+                damage = Math.Max(1, damage - player.Defense);
+            }
+
+            player.HP -= damage;
+            Console.WriteLine($"{enemy.Name} наносит {damage} урона");
         }
     }
 
