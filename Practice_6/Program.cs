@@ -155,7 +155,14 @@ class SimpleRoguelike
 
             player.HP -= damage;
             Console.WriteLine($"{enemy.Name} наносит {damage} урона");
+
         }
+    }
+    static void FightEnemy(Player player)
+    {
+        Enemy enemy = CreateEnemy();
+        Console.WriteLine($"{enemy.Name} (HP: {enemy.HP}, Атака: {enemy.Attack})");
+        Fight(player, enemy);
     }
 
 
