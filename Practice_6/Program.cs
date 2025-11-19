@@ -164,6 +164,12 @@ class SimpleRoguelike
         Console.WriteLine($"{enemy.Name} (HP: {enemy.HP}, Атака: {enemy.Attack})");
         Fight(player, enemy);
     }
+    static void FightBoss(Player player)
+    {
+        Enemy boss = CreateBoss();
+        Console.WriteLine($"БОСС {boss.Name} (HP: {boss.HP}, Атака: {boss.Attack})");
+        Fight(player, boss);
+    }
 
 
 
