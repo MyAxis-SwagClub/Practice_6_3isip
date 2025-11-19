@@ -31,6 +31,30 @@ class SimpleRoguelike
             Console.WriteLine($"\n--- Ход {turn} ---");
             Console.WriteLine($"HP: {player.HP}, Атака: {player.Attack}, Защита: {player.Defense}\n");
 
+            if (player.Frozen)
+            {
+                Console.WriteLine("Вы заморожены и пропускаете ход!\n");
+                player.Frozen = false;
+                continue;
+            }
+
+            if (turn % 10 == 0)
+            {
+                Console.WriteLine("ПОЯВИЛСЯ БОСС\n");
+                FightBoss(player);
+            }
+
+            else if (random.Next(2) == 0)
+            {
+                Console.WriteLine("Вы нашли сундук!\n");
+                OpenChest(player);
+            }
+            else
+            {
+                Console.WriteLine("Появился враг!\n");
+                FightEnemy(player);
+            }
+
         }
 
     }
