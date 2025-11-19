@@ -25,6 +25,11 @@ class SimpleRoguelike
         Player player = new Player();
         int turn = 0;
 
+        while (player.HP > 0)
+        {
+
+        }
+
     }
 
 }
