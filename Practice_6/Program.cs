@@ -27,6 +27,9 @@ class SimpleRoguelike
 
         while (player.HP > 0)
         {
+            turn++;
+            Console.WriteLine($"\n--- Ход {turn} ---");
+            Console.WriteLine($"HP: {player.HP}, Атака: {player.Attack}, Защита: {player.Defense}\n");
 
         }
 
