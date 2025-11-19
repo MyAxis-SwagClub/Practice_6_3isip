@@ -2,6 +2,7 @@
 
 class SimpleRoguelike
 {
+    static Random random = new Random();
     class Player
     {
         public int HP = 100;
