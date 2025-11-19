@@ -9,7 +9,13 @@ class SimpleRoguelike
         public int Defense = 5;
         public bool Frozen = false;
     }
-
+    class Enemy
+    {
+        public string Name;
+        public int HP;
+        public int Attack;
+        public string Type;
+    }
 
     static void Main()
     {
